@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:teste_code_hero_mobile/app/search/ui/pages/main_page.dart';
+import 'package:teste_code_hero_mobile/app/search/domain/entities/character.dart';
+import 'package:teste_code_hero_mobile/app/search/ui/pages/display_character_page/main_display_character_page.dart';
+import 'package:teste_code_hero_mobile/app/search/ui/pages/search_page/main_search_page.dart';
 import 'search/data/datasources/marvel/marvel_datasource.dart';
 import 'search/data/datasources/search_datasource.dart';
 import 'search/data/repositories/search_repository_impl.dart';
@@ -26,6 +28,12 @@ class AppModule extends Module {
 
   @override
   void routes(r) {
-    r.child('/', child: (context) => const MainPage());
+    r.child('/', child: (context) => const SearchPage());
+    r.child('/display', child: (_) {
+      var character = r.args.data as Character;
+      return DisplayCharacterPage(
+        character: character,
+      );
+    });
   }
 }

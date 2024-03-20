@@ -6,10 +6,10 @@ import 'package:teste_code_hero_mobile/app/search/ui/extensions/theme.dart';
 import 'package:teste_code_hero_mobile/app/search/ui/widgets/characters_table/mobile_characters_table.dart';
 import 'package:teste_code_hero_mobile/app/search/ui/widgets/header/mobile_header.dart';
 import 'package:teste_code_hero_mobile/app/search/ui/widgets/search_bar/mobile_search_bar.dart';
-import '../../domain/states/search_state.dart';
+import '../../../domain/states/search_state.dart';
 
-class MobilePage extends StatelessWidget {
-  const MobilePage({super.key});
+class MobileSearchPage extends StatelessWidget {
+  const MobileSearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +74,9 @@ class MobilePage extends StatelessWidget {
                   goToPage: (int page) {
                     bloc.add(
                         bloc.searchModel.copyWith(itemPerPage: 4, page: page));
+                  },
+                  onTapCharacter: (character) {
+                    Modular.to.pushNamed('/display', arguments: character);
                   },
                 );
               } else {

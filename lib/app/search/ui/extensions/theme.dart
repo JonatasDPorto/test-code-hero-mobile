@@ -92,4 +92,14 @@ extension CustomTextStyles on TextTheme {
       height: 1.1,
     );
   }
+
+  TextStyle get displayTitleText {
+    return const TextStyle(
+      fontSize: 16.0,
+      color: Color(0xFF4E4E4E),
+      fontFamily: 'Roboto-Regular',
+      letterSpacing: 0,
+      height: 1.1,
+    );
+  }
 }

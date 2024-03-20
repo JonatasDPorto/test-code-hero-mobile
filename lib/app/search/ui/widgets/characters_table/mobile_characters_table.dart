@@ -10,12 +10,14 @@ class MobileCharactersTable extends StatelessWidget {
   final int numberPages;
   final int pageSelected;
   final void Function(int page) goToPage;
+  final void Function(Character character) onTapCharacter;
   const MobileCharactersTable(
       {super.key,
       required this.characters,
       required this.numberPages,
       required this.pageSelected,
-      required this.goToPage});
+      required this.goToPage,
+      required this.onTapCharacter});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,12 @@ class MobileCharactersTable extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
-                child: CharacterTableItem(character: character),
+                child: GestureDetector(
+                  onTap: () {
+                    onTapCharacter(character);
+                  },
+                  child: CharacterTableItem(character: character),
+                ),
               ),
             );
           },

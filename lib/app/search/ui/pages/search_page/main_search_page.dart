@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:teste_code_hero_mobile/app/search/ui/extensions/theme.dart';
-import 'package:teste_code_hero_mobile/app/search/ui/pages/web_page.dart';
-import 'package:teste_code_hero_mobile/app/search/ui/pages/mobile_page.dart';
+import 'package:teste_code_hero_mobile/app/search/ui/pages/search_page/web_search_page.dart';
+import 'package:teste_code_hero_mobile/app/search/ui/pages/search_page/mobile_search_page.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+class SearchPage extends StatelessWidget {
+  const SearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +17,9 @@ class MainPage extends StatelessWidget {
               builder: (context, constraints) {
                 var isMobile = constraints.maxWidth < 900;
                 if (isMobile) {
-                  return const MobilePage();
+                  return const MobileSearchPage();
                 }
-                return const WebPage();
+                return const WebSearchPage();
               },
             ),
           ),

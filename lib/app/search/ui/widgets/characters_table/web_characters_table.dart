@@ -11,13 +11,14 @@ class WebCharactersTable extends StatelessWidget {
   final int numberPages;
   final int pageSelected;
   final void Function(int page) goToPage;
-
+  final void Function(Character character) onTapCharacter;
   const WebCharactersTable(
       {super.key,
       required this.characters,
       required this.numberPages,
       required this.pageSelected,
-      required this.goToPage});
+      required this.goToPage,
+      required this.onTapCharacter});
 
   TableRow _getHeader(ThemeData theme) {
     return TableRow(
@@ -83,7 +84,7 @@ class WebCharactersTable extends StatelessWidget {
                     return Colors.transparent;
                   },
                 ),
-                onTap: () {},
+                onTap: () => onTapCharacter(character),
                 child: SizedBox(
                   height: 112,
                   child: Padding(
@@ -102,7 +103,7 @@ class WebCharactersTable extends StatelessWidget {
                     return Colors.transparent;
                   },
                 ),
-                onTap: () {},
+                onTap: () => onTapCharacter(character),
                 child: TextTableItem(
                   text: character.series.join('\n'),
                 ),
@@ -117,7 +118,7 @@ class WebCharactersTable extends StatelessWidget {
                     return Colors.transparent;
                   },
                 ),
-                onTap: () {},
+                onTap: () => onTapCharacter(character),
                 child: TextTableItem(
                   text: character.events.join('\n'),
                 ),

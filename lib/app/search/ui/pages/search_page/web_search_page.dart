@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:teste_code_hero_mobile/app/search/domain/blocs/search_bloc.dart';
 import 'package:teste_code_hero_mobile/app/search/domain/errors/erros.dart';
@@ -10,14 +8,14 @@ import 'package:teste_code_hero_mobile/app/search/ui/widgets/characters_table/we
 import 'package:teste_code_hero_mobile/app/search/ui/widgets/header/web_header.dart';
 import 'package:teste_code_hero_mobile/app/search/ui/widgets/search_bar/web_search_bar.dart';
 
-class WebPage extends StatefulWidget {
-  const WebPage({super.key});
+class WebSearchPage extends StatefulWidget {
+  const WebSearchPage({super.key});
 
   @override
-  State<WebPage> createState() => _WebPageState();
+  State<WebSearchPage> createState() => _WebSearchPageState();
 }
 
-class _WebPageState extends State<WebPage> {
+class _WebSearchPageState extends State<WebSearchPage> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -78,6 +76,9 @@ class _WebPageState extends State<WebPage> {
                     goToPage: (int page) {
                       bloc.add(bloc.searchModel
                           .copyWith(itemPerPage: 4, page: page));
+                    },
+                    onTapCharacter: (character) {
+                      Modular.to.pushNamed('/display', arguments: character);
                     },
                   );
                 } else {

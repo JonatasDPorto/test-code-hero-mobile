@@ -26,10 +26,15 @@ class CharacterModel extends Character {
   }
 
   static CharacterModel fromMap(Map<String, dynamic> map) {
+    var description = (map['description'] as String).trim();
+    if (description.isEmpty) {
+      description = "Nenhuma descrição informada.";
+    }
+
     return CharacterModel(
       image: map['thumbnail']['path'] + '/standard_medium.jpg',
       name: map['name'],
-      description: map['description'],
+      description: description,
       comics: (map['comics']['items'] as List)
           .map<String>((e) => e['name'])
           .toList(),
