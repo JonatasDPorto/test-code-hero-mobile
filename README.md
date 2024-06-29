@@ -1,6 +1,10 @@
-# Test Code Hero Mobile - Objective
+# Test Code Hero Mobile
 
 Este documento fornece instruções sobre como rodar o projeto Test Code Hero Mobile.
+
+# Conseguir api key
+
+Entre no [site developer da marvel](https://developer.marvel.com/) para conseguir sua chave da api.
 
 ## Variáveis de Ambiente
 
